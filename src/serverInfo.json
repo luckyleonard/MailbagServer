@@ -1,0 +1,12 @@
+{
+  "smtp": {
+    "host": "",
+    "port": "",
+    "auth": { "user": "", "psw": "" }
+  },
+  "imap": {
+    "host": "",
+    "port": "",
+    "auth": { "user": "", "psw": "" }
+  }
+}
