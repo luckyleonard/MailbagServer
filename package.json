@@ -19,6 +19,7 @@
     "typescript": "^3.9.5"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "emailjs-imap-client": "^3.1.0",
     "express": "^4.17.1",
     "mailparser": "^2.7.7",

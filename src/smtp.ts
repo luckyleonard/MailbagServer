@@ -11,9 +11,18 @@ export class Worker {
   }
   public sendMessage(inOption: SendMailOptions): Promise<string> {
     return new Promise((inResolve, inReject) => {
-      const transport: Mail = nodemailer.createTransport(
-        Worker.serverInfo.smtp
-      );
+      const {
+        auth: { user, pass },
+      } = Worker.serverInfo.smtp;
+      const transport: Mail = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
+        auth: {
+          user,
+          pass,
+        },
+      });
       transport.sendMail(
         inOption,
         (inError: Error | null, inInfo: SentMessageInfo) => {

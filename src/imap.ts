@@ -42,7 +42,7 @@ export class Worker {
   private async connectToServer(): Promise<any> {
     const client: any = new ImapClient.default(
       Worker.serverInfo.imap.host,
-      Worker.serverInfo.imap.port,
+      993,
       { auth: Worker.serverInfo.imap.auth }
     );
     client.logLevel = client.LOG_LEVEL_NONE;
@@ -55,7 +55,9 @@ export class Worker {
 
   public async listMailboxes(): Promise<IMailbox[]> {
     const client: any = await this.connectToServer();
+    console.log('in here');
     const mailboxes: any = await client.listMailboxes();
+    console.log('mailboxes:', mailboxes);
     await client.close();
     const finalMailboxes: IMailbox[] = [];
     const iterateChildren: Function = (inArray: any[]): void => {
