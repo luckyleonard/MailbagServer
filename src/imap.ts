@@ -55,9 +55,7 @@ export class Worker {
 
   public async listMailboxes(): Promise<IMailbox[]> {
     const client: any = await this.connectToServer();
-    console.log('in here');
     const mailboxes: any = await client.listMailboxes();
-    console.log('mailboxes:', mailboxes);
     await client.close();
     const finalMailboxes: IMailbox[] = [];
     const iterateChildren: Function = (inArray: any[]): void => {
